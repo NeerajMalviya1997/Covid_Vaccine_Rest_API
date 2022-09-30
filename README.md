@@ -10,6 +10,7 @@
 * Can check the status.
 
 ## ER-Daigram :
+![Screenshot (305)](https://user-images.githubusercontent.com/101568121/193348231-2532b8a9-4cac-405f-95f1-d652e11eab12.png)
 
 ## Contributors :
 * [@NeerajMalviya1997](https://github.com/NeerajMalviya1997)
