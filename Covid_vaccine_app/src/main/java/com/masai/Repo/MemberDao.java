@@ -12,5 +12,5 @@ import com.masai.model.VaccineRegistration;
 
 @Repository
 public interface MemberDao extends JpaRepository<Member, Integer> {
-
+   
 }

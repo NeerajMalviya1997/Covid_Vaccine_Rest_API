@@ -11,5 +11,7 @@ import com.masai.model.CurrentAdminSession;
 @Repository
 public interface AminSessionDao extends JpaRepository<CurrentAdminSession, Integer>{
 
+ public Optional<CurrentAdminSession> findByAdminId(Integer adminId);
 	
+	public Optional<CurrentAdminSession> findByUuid(String uuid);
 }

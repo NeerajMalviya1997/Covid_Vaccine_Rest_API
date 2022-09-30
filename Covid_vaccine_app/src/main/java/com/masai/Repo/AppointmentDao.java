@@ -11,5 +11,5 @@ import com.masai.model.Member;
 
 @Repository
 public interface AppointmentDao extends JpaRepository<Appointment, Long> {
-	
+	List<Appointment> findByMember(Member member);
 }
