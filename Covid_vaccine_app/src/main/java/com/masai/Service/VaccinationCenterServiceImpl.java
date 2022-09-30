@@ -1,4 +1,4 @@
-package com.masai.service;
+package com.masai.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,23 +6,25 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.masai.Repo.AminSessionDao;
+import com.masai.Repo.VaccinCenterDao;
 import com.masai.exceptions.VaccineCenterException;
 import com.masai.exceptions.VaccineCenterNotFoundException;
 import com.masai.model.CurrentAdminSession;
 import com.masai.model.CurrentUserSession;
 import com.masai.model.VaccinationCenter;
-import com.masai.repository.AdminSessionDAO;
-import com.masai.repository.UserSessionDAO;
-import com.masai.repository.VaccinationCenterDao;
+import com.masai.Repo.AminSessionDao;
+import com.masai.Repo.UserSessionDAO;
+import com.masai.Repo.VaccinCenterDao;
 
 @Service
 public class VaccinationCenterServiceImpl implements VaccinationCenterService {
 
 	@Autowired
-	private VaccinationCenterDao dao;
+	private VaccinCenterDao dao;
 	
 	@Autowired
-	private AdminSessionDAO adminSessionDAO;
+	private AminSessionDao adminSessionDAO;
 	
 	@Autowired
 	private UserSessionDAO userSessionDAO;

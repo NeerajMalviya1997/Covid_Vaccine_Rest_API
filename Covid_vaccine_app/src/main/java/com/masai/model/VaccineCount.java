@@ -1,6 +1,7 @@
 package com.masai.model;
 
 import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,12 @@ import org.hibernate.annotations.GeneratorType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
 public class VaccineCount {
 	

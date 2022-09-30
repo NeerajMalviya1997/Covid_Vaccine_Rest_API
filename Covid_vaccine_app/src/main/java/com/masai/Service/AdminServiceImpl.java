@@ -1,4 +1,4 @@
-package com.masai.service;
+package com.masai.Service;
 
 import java.util.Optional;
 
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.masai.model.Admin;
 import com.masai.model.CurrentAdminSession;
-import com.masai.repository.AdminDao;
-import com.masai.repository.AdminSessionDAO;
+import com.masai.Repo.AdminDao;
+import com.masai.Repo.AminSessionDao;
 
 @Service
 public class AdminServiceImpl implements AdminService{
@@ -18,7 +18,7 @@ public class AdminServiceImpl implements AdminService{
 	
 	
 	@Autowired
-	private AdminSessionDAO adminSessionDAO;
+	private AminSessionDao adminSessionDAO;
 	
 	@Override
 	public Admin createAdmin(Admin admin) {

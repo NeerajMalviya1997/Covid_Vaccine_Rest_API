@@ -46,4 +46,11 @@ public class IDCard {
 
 	@Embedded
 	Pancard pancard;
+
+	public IDCard save(IDCard idCard) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }

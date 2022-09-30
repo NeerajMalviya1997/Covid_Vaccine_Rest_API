@@ -1,4 +1,4 @@
-package com.masai.service;
+package com.masai.Service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.masai.model.CurrentUserSession;
 import com.masai.model.User;
-import com.masai.model.UserDTO;
-import com.masai.repository.UserDao;
-import com.masai.repository.UserSessionDAO;
+import com.masai.model.UserDto;
+import com.masai.Repo.UserDao;
+import com.masai.Repo.UserSessionDAO;
 
 import net.bytebuddy.utility.RandomString;
 
@@ -24,7 +24,7 @@ public class UserLogInServiceImpl implements UserLoginService{
 	private UserSessionDAO userSessionDAO;
 	
 	@Override
-	public String logIntoAccount(UserDTO userDTO) throws Exception {
+	public String logIntoAccount(UserDto userDTO) throws Exception {
 
 		Optional<User> opt= userDao.findByMobileNo(userDTO.getMobileNo());
 		
@@ -46,17 +46,7 @@ public class UserLogInServiceImpl implements UserLoginService{
 			CurrentUserSession currentUserSession = new CurrentUserSession(userId, key, LocalDateTime.now());
 			
 			userSessionDAO.save(currentUserSession);
-			
-//			FileReader fr=new FileReader("user.txt");
-//			String dat= "";
-//			int i=fr.read();
-//			while( i != -1) {
-//				dat=dat+(char)i;
-//			System.out.print((char) i);
-//			i = fr.read();
-//			}
 
-		//	return currentUserSession.toString()+"\n"+dat;
 			return currentUserSession.toString();
 		}
 		else {

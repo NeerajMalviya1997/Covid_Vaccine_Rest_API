@@ -1,4 +1,4 @@
-package com.masai.service;
+package com.masai.Service;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,9 +15,9 @@ import com.masai.model.CurrentUserSession;
 import com.masai.model.Member;
 import com.masai.model.VaccinationCenter;
 import com.masai.model.VaccineRegistration;
-import com.masai.repository.AdminSessionDAO;
-import com.masai.repository.AppointmentDao;
-import com.masai.repository.UserSessionDAO;
+import com.masai.Repo.AminSessionDao;
+import com.masai.Repo.AppointmentDao;
+import com.masai.Repo.UserSessionDAO;
 
 @Service
 public class AppointmentServiceImp implements AppointmentService {
@@ -35,7 +35,7 @@ public class AppointmentServiceImp implements AppointmentService {
 	private VaccinationCenterService vaccinationCenterService;
 	
 	@Autowired
-	private AdminSessionDAO adminSessionDAO;
+	private AminSessionDao adminSessionDAO;
 	
 	@Autowired
 	private UserSessionDAO userSessionDAO;
@@ -91,16 +91,16 @@ public class AppointmentServiceImp implements AppointmentService {
 		else {
 			List<Member> list = reg.getMembers();
 			for (Member m : list) {
-				if (m.getMemberId() == memId) {
+				if (m.getMemberid() == memId) {
 					app.setMember(m);
 					app.setDateofbooking(LocalDate.now());
-					app.setBookigStatus(true);
+					app.setBookingStatus(true);
 					Integer id = app.getVaccinationCenter().getCode();
 					VaccinationCenter vaccinationCenter = vaccinationCenterService.getVaccineCenter(id,key);
 					app.setVaccinationCenter(vaccinationCenter);
 					Appointment a = appointmentDao.save(app);
 					m.getAppointments().add(a);
-					memberService.updateMember(m, m.getMemberId(),key);
+					memberService.updateMember(m, m.getMemberid(),key);
 					return a;
 				}
 			}
@@ -117,7 +117,7 @@ public class AppointmentServiceImp implements AppointmentService {
 				throw new RuntimeException("Unauthorised access");
 			}
 			
-		Appointment appointment = appointmentDao.findById(app.getBookingID())
+		Appointment appointment = appointmentDao.findById(app.getBookingId())
 				.orElseThrow(() -> new AppointmentExcepation("Appointment not found!"));
 
 		appointment.setDateofbooking(app.getDateofbooking());

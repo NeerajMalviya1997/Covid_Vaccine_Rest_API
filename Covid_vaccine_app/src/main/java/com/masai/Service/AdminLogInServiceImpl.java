@@ -14,6 +14,7 @@ import com.masai.model.CurrentAdminSession;
 
 import net.bytebuddy.utility.RandomString;
 import com.masai.Repo.AdminDao;
+import com.masai.Repo.AminSessionDao;
 @Service
 public class AdminLogInServiceImpl implements AdminLoginService{
 
@@ -26,7 +27,7 @@ public class AdminLogInServiceImpl implements AdminLoginService{
 	@Override
 	public String logIntoAccount(AdminDto admin){
 		
-<<<<<<< HEAD
+
 //		Optional<Admin> adminObj= adminDao.findByMobileNo(adminDTO.getMobileNo());
 //		
 //		if(!adminObj.isPresent()) {
@@ -54,36 +55,36 @@ public class AdminLogInServiceImpl implements AdminLoginService{
 //		else {
 //			return "Please Enter valid password.";
 //		}
-=======
-		Optional<Admin> adminObj= adminDao.findByMobileNo(adminDTO.getMobileNo());
-		
-		if(!adminObj.isPresent()) {
-			return "Please enter valid Mobile number!";
-		}
-		
-		Admin admin1= adminObj.get();
-		Integer adminId = admin1.getId();
-		
-		Optional<CurrentAdminSession>  currAdminopt1= adminSessionDAO.findByAdminId(adminId);
-		
-		if(currAdminopt1.isPresent()) {
-			return "Admin already logged in with this number.";
-		}
-		
-		if(admin1.getPassword().equals(adminDTO.getPassword())) {
-			
-			String key = RandomString.make(6);
-			
-			CurrentAdminSession currentAdminSession = new CurrentAdminSession(adminId, key, LocalDateTime.now());
-			
-			adminSessionDAO.save(currentAdminSession);
-			
-			return currentAdminSession.toString();
-		}
-		else {
-			return "Please Enter valid password.";
-		}
->>>>>>> refs/remotes/origin/main
+
+//		Optional<Admin> adminObj= adminDao.findByMobileNo(adminDTO.getMobileNo());
+//		
+//		if(!adminObj.isPresent()) {
+//			return "Please enter valid Mobile number!";
+//		}
+//		
+//		Admin admin1= adminObj.get();
+//		Integer adminId = admin1.getId();
+//		
+//		Optional<CurrentAdminSession>  currAdminopt1= adminSessionDAO.findByAdminId(adminId);
+//		
+//		if(currAdminopt1.isPresent()) {
+//			return "Admin already logged in with this number.";
+//		}
+//		
+//		if(admin1.getPassword().equals(adminDTO.getPassword())) {
+//			
+//			String key = RandomString.make(6);
+//			
+//			CurrentAdminSession currentAdminSession = new CurrentAdminSession(adminId, key, LocalDateTime.now());
+//			
+//			adminSessionDAO.save(currentAdminSession);
+//			
+//			return currentAdminSession.toString();
+//		}
+//		else {
+//			return "Please Enter valid password.";
+//		}
+
 
 		return null;
 	}
@@ -101,7 +102,7 @@ public class AdminLogInServiceImpl implements AdminLoginService{
 		}
 		return "Admin does not exist, Enter correct uuid";
 	}
-<<<<<<< HEAD
+
 
 	@Override
 	public String logIntoAccount(Admin adminDTO) {
@@ -109,13 +110,6 @@ public class AdminLogInServiceImpl implements AdminLoginService{
 		return null;
 	}
 
-	@Override
-	public String logIntoAccount(AdminDto adminDTO) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-=======
 	
-	
->>>>>>> refs/remotes/origin/main
+
 }

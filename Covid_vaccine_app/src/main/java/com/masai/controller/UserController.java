@@ -74,8 +74,8 @@ public class UserController {
 	}
 
 	@GetMapping("/vaccine_registration/{mobNo}")
-	public ResponseEntity<VaccineRegistration> getVaccineRegistration(@PathVariable("mobNo") String mobNo,@RequestParam String key) {
-		return new ResponseEntity<VaccineRegistration>(vaccineRegistrationService.getVaccineRegistration(mobNo,key),
+	public ResponseEntity<VaccineRegistration> getVaccineRegistration(@PathVariable("mobNo") Long mobNo,@RequestParam String key) {
+		return new ResponseEntity<VaccineRegistration>(vaccineRegistrationService.getVaccineRegistration(mobNo, key),
 				HttpStatus.FOUND);
 	}
 //

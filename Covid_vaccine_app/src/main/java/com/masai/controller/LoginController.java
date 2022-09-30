@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.masai.model.AdminDTO;
-import com.masai.model.UserDTO;
-import com.masai.service.AdminLogInServiceImpl;
-import com.masai.service.UserLogInServiceImpl;
+import com.masai.model.AdminDto;
+
+import com.masai.model.UserDto;
+import com.masai.Service.AdminLogInServiceImpl;
+import com.masai.Service.UserLogInServiceImpl;
 
 @RestController
 
@@ -25,10 +26,10 @@ public class LoginController {
 	private AdminLogInServiceImpl adminLogInServiceImpl;
 
 	// for user login
-	@PostMapping("/userlogin")
-	public String logInUser(@RequestBody UserDTO userDTO) throws Exception {
-		return userLogInServiceImpl.logIntoAccount(userDTO);
-	}
+//	@PostMapping("/userlogin")
+//	public String logInUser(@RequestBody UserDto userDTO) throws Exception {
+//		return userLogInServiceImpl.logIntoAccount(userDTO);
+//	}
 
 	// for user logout
 	@PatchMapping("/userlogout")
@@ -38,7 +39,7 @@ public class LoginController {
 
 	// for admin login
 	@PostMapping("/adminlogin")
-	public String logInAdmin(@RequestBody AdminDTO adminDTO) {
+	public String logInAdmin(@RequestBody AdminDto adminDTO) {
 		return adminLogInServiceImpl.logIntoAccount(adminDTO);
 	}
 

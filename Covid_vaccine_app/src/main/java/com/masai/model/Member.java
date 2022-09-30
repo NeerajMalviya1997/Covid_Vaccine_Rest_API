@@ -19,7 +19,12 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.ManyToAny;
 
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Entity
 public class Member {
 	
@@ -30,6 +35,9 @@ public class Member {
 	private Boolean dose2status;
 	private LocalDate datefor1dose;	
 	private LocalDate datefor2dose;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private IDCard idCard;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Vaccine vaccine;

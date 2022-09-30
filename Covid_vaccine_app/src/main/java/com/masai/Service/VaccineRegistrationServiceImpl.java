@@ -1,6 +1,7 @@
-package com.masai.service;
+package com.masai.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,17 +13,18 @@ import com.masai.model.CurrentAdminSession;
 import com.masai.model.CurrentUserSession;
 import com.masai.model.Member;
 import com.masai.model.VaccineRegistration;
-import com.masai.repository.UserSessionDAO;
-import com.masai.repository.VaccineRegistrationDao;
+import com.masai.Repo.UserSessionDAO;
+import com.masai.Repo.VaccinRegistrationDao;
+
 
 @Service
 public class VaccineRegistrationServiceImpl implements VaccineRegistrationService {
 
 	@Autowired
-	private VaccineRegistrationDao vaccineRegistrationDao;
+	private VaccinRegistrationDao vaccineRegistrationDao;
 
 	@Autowired
-	private VaccineRegistrationDao vrdao;
+	private VaccinRegistrationDao vrdao;
 	
 	@Autowired
 	private UserSessionDAO userSessionDAO;
@@ -37,21 +39,7 @@ public class VaccineRegistrationServiceImpl implements VaccineRegistrationServic
 			throw new VaccineRegistrationException("No VaccineRegistration found...");
 	}
 
-	@Override
-	public VaccineRegistration getVaccineRegistration(String mobileNo,String key) {
-		
-		 Optional<CurrentUserSession> optCurrUser= userSessionDAO.findByUuid(key);
-			
-			if(!optCurrUser.isPresent()) {
-				
-				throw new RuntimeException("Unauthorised access");
-			}
 	
-		
-		return vaccineRegistrationDao.findById(mobileNo).orElseThrow(() -> new VaccineRegistrationException(
-				"VaccineRegistraion does not exist with this mobileNo :" + mobileNo));
-	}
-
 	@Override
 	public List<Member> getAllMember(String mobileNo,String key) {
 		
@@ -86,7 +74,7 @@ public class VaccineRegistrationServiceImpl implements VaccineRegistrationServic
 		if (vr.isPresent()) {
 			throw new VaccineRegistrationException("Vaccination registration is present with the same MobileNo");
 		}
-		return vaccineRegistrationDao.save(new VaccineRegistration(mobNo, LocalDate.now(), null));
+		return vaccineRegistrationDao.save(new VaccineRegistration(mobNo, LocalDateTime.now(), null));
 	}
 
 	@Override
@@ -102,7 +90,7 @@ public class VaccineRegistrationServiceImpl implements VaccineRegistrationServic
 		
 		VaccineRegistration vc = vaccineRegistrationDao.findById(mobNo)
 				.orElseThrow(() -> new VaccineRegistrationException("Registration not found"));
-		vc.setMobileno(newMobNo);
+		vc.setMobileNo(newMobNo);
 		return vaccineRegistrationDao.save(vc);
 
 	}
@@ -124,5 +112,18 @@ public class VaccineRegistrationServiceImpl implements VaccineRegistrationServic
 		return true;
 
 	}
+
+
+	@Override
+	public VaccineRegistration getVaccineRegistration(Long long1, String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+
+
+
 
 }

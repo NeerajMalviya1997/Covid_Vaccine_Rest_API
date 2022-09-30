@@ -11,6 +11,6 @@ import com.masai.model.VaccineInventory;
 @Repository
 public interface VaccineInventoryDao extends JpaRepository<VaccineInventory, Integer>{
 
-
+	public List<VaccineInventory> findByDate(LocalDate date);
 
 }

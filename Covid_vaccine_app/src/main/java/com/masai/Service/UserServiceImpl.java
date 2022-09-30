@@ -1,4 +1,4 @@
-package com.masai.service;
+package com.masai.Service;
 
 import java.util.Optional;
 
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.masai.model.CurrentUserSession;
 import com.masai.model.User;
-import com.masai.repository.UserDao;
-import com.masai.repository.UserSessionDAO;
+import com.masai.Repo.UserDao;
+import com.masai.Repo.UserSessionDAO;
 
 @Service
 public class UserServiceImpl implements UserService{

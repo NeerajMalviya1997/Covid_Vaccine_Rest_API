@@ -1,4 +1,4 @@
-package com.masai.service;
+package com.masai.Service;
 
 import org.springframework.stereotype.Service;
 

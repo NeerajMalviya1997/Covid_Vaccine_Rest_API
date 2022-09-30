@@ -1,4 +1,4 @@
-package com.masai.service;
+package com.masai.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,10 +14,10 @@ import com.masai.model.CurrentAdminSession;
 import com.masai.model.VaccinationCenter;
 import com.masai.model.VaccineCount;
 import com.masai.model.VaccineInventory;
-import com.masai.repository.AdminSessionDAO;
-import com.masai.repository.VaccinationCenterDao;
-import com.masai.repository.VaccineCountDao;
-import com.masai.repository.VaccineInventoryDao;
+import com.masai.Repo.AminSessionDao;
+import com.masai.Repo.VaccinCenterDao;
+import com.masai.Repo.VaccineCountDao;
+import com.masai.Repo.VaccineInventoryDao;
 
 @Service
 public class VaccineInventoryServiceImpl implements VaccineInventoryService {
@@ -32,10 +32,10 @@ public class VaccineInventoryServiceImpl implements VaccineInventoryService {
 	private VaccineCountDao vaccinecountdao;
 
 	@Autowired
-	private VaccinationCenterDao vctDao;
+	private VaccinCenterDao vctDao;
 	
 	@Autowired
-	private AdminSessionDAO adminSessionDAO;
+	private AminSessionDao adminSessionDAO;
 
 	@Override
 	public VaccineInventory saveVaccineInventory(VaccineInventory vaccineInv, String key) {
@@ -54,13 +54,13 @@ public class VaccineInventoryServiceImpl implements VaccineInventoryService {
 
 //	 VaccineInventory vct= vaccineInvDao.save(vaccineInv);
 
-		List<VaccinationCenter> vaccineCenterList = vaccineInv.getVaccinationCenters();
+		List<VaccinationCenter> vaccineCenterList = vaccineInv.getVaccinationCanter();
 		for (VaccinationCenter vaccinationCenter : vaccineCenterList) {
 			vaccinationCenter.setVaccineInventory(vaccineInv);
 //		vctDao.save(vaccinationCenter);
 		}
 
-		List<VaccineCount> vaccinecountList = vaccineInv.getVaccineCounts();
+		List<VaccineCount> vaccinecountList = vaccineInv.getVaccinecount();
 		for (VaccineCount vaccineCount : vaccinecountList) {
 			vaccineCount.setVaccineInventory(vaccineInv);
 //		 vaccinecountdao.save(vaccineCount);
@@ -116,11 +116,11 @@ public class VaccineInventoryServiceImpl implements VaccineInventoryService {
 		if (opt.isPresent()) {
 			VaccineInventory vacInv = opt.get();
 
-			List<VaccineCount> vcList = vacInv.getVaccineCounts();
+			List<VaccineCount> vcList = vacInv.getVaccinecount();
 			int count = 0;
 			for (VaccineCount vaccineCount : vcList) {
 				if (vaccineCount.getVaccine() != null) {
-					if (vaccineCount.getVaccine().getVaccineid() == vaccineId) {
+					if (vaccineCount.getVaccine().getVaccineId() == vaccineId) {
 						count++;
 						vaccineCount.setQuantity(vaccineCount.getQuantity() + 1);
 					}
@@ -150,13 +150,13 @@ public class VaccineInventoryServiceImpl implements VaccineInventoryService {
 		if (vacInvOpt.isPresent()) {
 
 			// saving vaccine count and centers
-			List<VaccinationCenter> vaccineCenterList = vaccineInv.getVaccinationCenters();
+			List<VaccinationCenter> vaccineCenterList = vaccineInv.getVaccinationCanter();
 			for (VaccinationCenter vaccinationCenter : vaccineCenterList) {
 				vctDao.save(vaccinationCenter);
 				vaccinationCenter.setVaccineInventory(vaccineInv);
 			}
 
-			List<VaccineCount> vaccinecountList = vaccineInv.getVaccineCounts();
+			List<VaccineCount> vaccinecountList = vaccineInv.getVaccinecount();
 			for (VaccineCount vaccineCount : vaccinecountList) {
 				vaccinecountdao.save(vaccineCount);
 				vaccineCount.setVaccineInventory(vaccineInv);
@@ -228,7 +228,7 @@ public class VaccineInventoryServiceImpl implements VaccineInventoryService {
 		int count = 0;
 		for (VaccineInventory vaccineInventory : vaccineInventoryList) {
 
-			List<VaccineCount> vaccineCountList = vaccineInventory.getVaccineCounts();
+			List<VaccineCount> vaccineCountList = vaccineInventory.getVaccinecount();
 			if (vaccineCountList.size() == 0) {
 				throw new VaccineInventoryNotFoundException("List empty, need to add VaccineCount first!");
 			}
@@ -236,7 +236,7 @@ public class VaccineInventoryServiceImpl implements VaccineInventoryService {
 			for (VaccineCount vaccineCount : vaccineCountList) {
 
 				if (!(vaccineCount.getVaccine() == null)) {
-					if (vaccineCount.getVaccine().getVaccineName().equalsIgnoreCase(vaccineName)) {
+					if (vaccineCount.getVaccine().getVaccinename().equalsIgnoreCase(vaccineName)) {
 						foundedvaccineInventoryList.add(vaccineInventory);
 						count++;
 					}

@@ -19,12 +19,14 @@ package com.masai.controller;
 
         import com.masai.model.Admin;
         import com.masai.model.Appointment;
-       
-        import com.masai.model.Member;
+import com.masai.model.IDCard;
+import com.masai.model.Member;
         import com.masai.model.VaccinationCenter;
         import com.masai.model.Vaccine;
         import com.masai.model.VaccineInventory;
-        import com.masai.Service.AdminServiceImpl;
+import com.masai.Service.VaccinationCenterService;
+import com.masai.Service.VaccineInventoryService;
+import com.masai.Service.AdminServiceImpl;
         import com.masai.Service.AppointmentService;
         import com.masai.Service.IdCardService;
         import com.masai.Service.MemberService;
@@ -75,7 +77,7 @@ public class AdminController {
     @PostMapping("/vaccine_inventory")
     public ResponseEntity<VaccineInventory> saveVaccineHandler(@RequestBody VaccineInventory vaccineInv,@RequestParam String key) {
 
-        return new ResponseEntity<>(vaccineInvService.saveVaccineInventory(vaccineInv,key), HttpStatus.CREATED);
+        return new ResponseEntity<VaccineInventory>(vaccineInvService.saveVaccineInventory(vaccineInv,key), HttpStatus.CREATED);
 
     }
 
@@ -237,15 +239,15 @@ public class AdminController {
     }
 
     // idCard
-    @GetMapping("/idcard/aadhhar/{id}")
-    public ResponseEntity<IdCard> getIdcardByAddhar(@PathVariable("id") Long id,@RequestParam String key) {
-        return new ResponseEntity<IdCard>(idCardService.getIdCardByAdharNo(id,key), HttpStatus.FOUND);
-    }
+//    @GetMapping("/idcard/aadhhar/{id}")
+//    public ResponseEntity<IDCard> getIdcardByAddhar(@PathVariable("id") Long id,@RequestParam String key) {
+//        return new ResponseEntity<IDCard>(idCardService.getIdCardByAdharNo(id,key), HttpStatus.FOUND);
+//    }
 
-    @GetMapping("/idcard/pan/{id}")
-    public ResponseEntity<IdCard> getIdcardByAddhar(@PathVariable("id") String id,@RequestParam String key) {
-        return new ResponseEntity<IdCard>(idCardService.getIdcardByPanNo(id,key), HttpStatus.FOUND);
-    }
+//    @GetMapping("/idcard/pan/{id}")
+//    public ResponseEntity<IdCard> getIdcardByAddhar(@PathVariable("id") String id,@RequestParam String key) {
+//        return new ResponseEntity<IdCard>(idCardService.getIdcardByPanNo(id,key), HttpStatus.FOUND);
+//    }
 
 }
 

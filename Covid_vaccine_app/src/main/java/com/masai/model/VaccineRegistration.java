@@ -27,7 +27,7 @@ import lombok.Setter;
 public class VaccineRegistration {
     
 	@Id
-	private Long mobileNo;
+	private String mobileNo;
 	private LocalDateTime dateofregistration;
 	
 	@JsonIgnore

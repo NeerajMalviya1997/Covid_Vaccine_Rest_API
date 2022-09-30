@@ -12,5 +12,12 @@ import com.masai.model.VaccineRegistration;
 
 @Repository
 public interface MemberDao extends JpaRepository<Member, Integer> {
-   
+  
+
+	public Member findByIdCard(Optional<IDCard> idcard);
+
+	
+
+
+	public Member findByvaccineRegistration(VaccineRegistration vr);
 }

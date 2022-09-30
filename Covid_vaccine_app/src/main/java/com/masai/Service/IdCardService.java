@@ -1,14 +1,15 @@
-package com.masai.service;
+package com.masai.Service;
 
 import com.masai.exceptions.IdCardException;
 import com.masai.exceptions.IdCardNotFoundException;
-import com.masai.model.IdCard;
+import com.masai.model.IDCard;
+
 
 public interface IdCardService {
 
-	public IdCard getIdcardByPanNo(String panNo,String key) throws IdCardNotFoundException;
+	public IDCard getIdcardByPanNo(String panNo,String key) throws IdCardNotFoundException;
 
-	public IdCard getIdCardByAdharNo(Long adharno,String key) throws IdCardNotFoundException;
+	public IDCard getIdCardByAdharNo(Long adharno,String key) throws IdCardNotFoundException;
 
-	public IdCard addIdCard(IdCard idCard) throws IdCardException;
+	public IDCard addIdCard(IDCard idCard) throws IdCardException;
 }
