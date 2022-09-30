@@ -1,2 +1,6 @@
 # Covid_Vaccine_Rest_API
-Welcome to our first java project
+
+##Rest API for Covid-19 Vaccination App :
+* We have created this rest api for managing the vaccination included registration, booking slot and all.
+
+
