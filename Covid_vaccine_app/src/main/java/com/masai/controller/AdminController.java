@@ -19,18 +19,17 @@ package com.masai.controller;
 
         import com.masai.model.Admin;
         import com.masai.model.Appointment;
-        import com.masai.model.IdCard;
+       
         import com.masai.model.Member;
         import com.masai.model.VaccinationCenter;
         import com.masai.model.Vaccine;
         import com.masai.model.VaccineInventory;
-        import com.masai.service.AdminServiceImpl;
-        import com.masai.service.AppointmentService;
-        import com.masai.service.IdCardService;
-        import com.masai.service.MemberService;
-        import com.masai.service.VaccinationCenterService;
-        import com.masai.service.VaccineInventoryService;
-        import com.masai.service.VaccineService;
+        import com.masai.Service.AdminServiceImpl;
+        import com.masai.Service.AppointmentService;
+        import com.masai.Service.IdCardService;
+        import com.masai.Service.MemberService;
+       
+        import com.masai.Service.VaccineService;
 
 @RestController
 @RequestMapping("/admin")

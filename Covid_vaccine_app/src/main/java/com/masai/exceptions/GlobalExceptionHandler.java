@@ -3,7 +3,7 @@ package com.masai.exceptions;
 import java.time.LocalDateTime;
 
 import javax.persistence.RollbackException;
-import javax.validation.ConstraintViolationException;
+
 
 import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpStatus;
@@ -97,15 +97,7 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
 	}
 
-	@ExceptionHandler(ConstraintViolationException.class)
-	public ResponseEntity<MyErrorDetails> handleValidationException(Exception exp, WebRequest req) {
-		System.out.println("Inside Constraint Violation Exception. Exception is being handled");
-		MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(),
-				"Improper arguments passed in json. Validation failed", req.getDescription(false));
-
-		return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
-	}
-
+	
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public ResponseEntity<MyErrorDetails> mynotFoundHandler(NoHandlerFoundException nfe, WebRequest req) {
 		System.out.println("Inside No Handler Found Exception. Exception is being handled");
