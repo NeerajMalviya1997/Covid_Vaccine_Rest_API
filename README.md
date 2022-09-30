@@ -9,10 +9,14 @@
 * Can register for vaccine and Can book the slot.
 * Can check the status.
 
-## ER - Daigram :
+## ER-Daigram :
 
 ## Contributors :
-* [[@NeerajMalviya1997](https://github.com/NeerajMalviya1997)
+* [@NeerajMalviya1997](https://github.com/NeerajMalviya1997)
+* [@Abideshverma](https://github.com/Abideshverma)
+* [@SubhamAnandSharma](https://github.com/SubhamAnandSharma)
+* [@Pritu2022](https://github.com/Pritu2022)
+
 
 
 
