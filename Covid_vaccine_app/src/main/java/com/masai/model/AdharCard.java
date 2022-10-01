@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class AdharCard {
 	
 	
-	private Long adharNo;
+	private long adharNo;
 	
 
 }

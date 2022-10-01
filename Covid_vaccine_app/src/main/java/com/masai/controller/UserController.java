@@ -74,17 +74,17 @@ public class UserController {
 	}
 
 	@GetMapping("/vaccine_registration/{mobNo}")
-	public ResponseEntity<VaccineRegistration> getVaccineRegistration(@PathVariable("mobNo") Long mobNo,@RequestParam String key) {
+	public ResponseEntity<VaccineRegistration> getVaccineRegistration(@PathVariable("mobNo") String mobNo,@RequestParam String key) {
 		return new ResponseEntity<VaccineRegistration>(vaccineRegistrationService.getVaccineRegistration(mobNo, key),
 				HttpStatus.FOUND);
 	}
-//
-//	@PutMapping("/vaccine_registration/{mobNo}")
-//	public ResponseEntity<VaccineRegistration> updateVaccineRegistration(@PathVariable("mobNo") String mobNo,
-//			@RequestBody VaccineRegistration reg,@RequestParam String key) {
-//		return new ResponseEntity<VaccineRegistration>(
-//				vaccineRegistrationService.updateVaccineRegistration(mobNo, reg.getMobileno(),key), HttpStatus.OK);
-//	}
+
+	@PutMapping("/vaccine_registration/{mobNo}")
+	public ResponseEntity<VaccineRegistration> updateVaccineRegistration(@PathVariable("mobNo") String mobNo,
+			@RequestBody VaccineRegistration reg,@RequestParam String key) {
+		return new ResponseEntity<VaccineRegistration>(
+				vaccineRegistrationService.updateVaccineRegistration(mobNo, reg.getMobileNo(),key), HttpStatus.OK);
+	}
 
 	@DeleteMapping("/vaccine_registration/{mobNo}")
 	public ResponseEntity<Boolean> deleteVaccineRegistration(@PathVariable("mobNo") String mobNo,@RequestParam String key) {

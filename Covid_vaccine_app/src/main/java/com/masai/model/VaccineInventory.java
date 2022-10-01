@@ -25,7 +25,6 @@ import lombok.NoArgsConstructor;
 public class VaccineInventory {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer vaccineInventoryId;
 	
 	private LocalDate date;

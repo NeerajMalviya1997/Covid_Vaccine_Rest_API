@@ -74,7 +74,7 @@ public class VaccineRegistrationServiceImpl implements VaccineRegistrationServic
 		if (vr.isPresent()) {
 			throw new VaccineRegistrationException("Vaccination registration is present with the same MobileNo");
 		}
-		return vaccineRegistrationDao.save(new VaccineRegistration(mobNo, LocalDateTime.now(), null));
+		return vaccineRegistrationDao.save(new VaccineRegistration(mobNo, LocalDate.now(), null));
 	}
 
 	@Override
@@ -115,11 +115,21 @@ public class VaccineRegistrationServiceImpl implements VaccineRegistrationServic
 
 
 	@Override
-	public VaccineRegistration getVaccineRegistration(Long long1, String key) {
-		// TODO Auto-generated method stub
-		return null;
+	public VaccineRegistration getVaccineRegistration(String mobileNo, String key) {
+		 Optional<CurrentUserSession> optCurrUser= userSessionDAO.findByUuid(key);
+			
+			if(!optCurrUser.isPresent()) {
+				
+				throw new RuntimeException("Unauthorised access");
+			}
+	
+		
+		return vaccineRegistrationDao.findById(mobileNo).orElseThrow(() -> new VaccineRegistrationException(
+				"VaccineRegistraion does not exist with this mobileNo :" + mobileNo));
 	}
 
+
+	
 
 	
 

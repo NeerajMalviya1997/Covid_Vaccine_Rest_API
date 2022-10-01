@@ -33,6 +33,7 @@ public class IDCard {
 	private String name;
 	private LocalDate Dob;
 	private String address;
+	private String gender;
 	private String city;
 	private String state;
 	private String pincode;

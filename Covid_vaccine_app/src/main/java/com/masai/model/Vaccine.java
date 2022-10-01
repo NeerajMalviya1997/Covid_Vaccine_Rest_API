@@ -27,6 +27,7 @@ public class Vaccine {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer vaccineId;
+	
 	private String vaccinename;
 	private String description;
 	@JsonIgnore

@@ -1,5 +1,6 @@
 package com.masai.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class VaccineRegistration {
     
 	@Id
 	private String mobileNo;
-	private LocalDateTime dateofregistration;
+	private LocalDate dateofregistration;
 	
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vaccineRegistration")

@@ -34,10 +34,10 @@ public class Appointment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long bookingId;
-	private Long mobileNo;
+	private long bookingId;
+	private String  mobileNo;
 	private LocalDate dateofbooking;
-	private Slots slot;
+	 Slots slot;
 	private boolean bookingStatus;
 	
 	

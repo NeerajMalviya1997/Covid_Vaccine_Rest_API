@@ -9,7 +9,7 @@ public interface VaccineRegistrationService {
 
 	public List<VaccineRegistration> allVaccineRegistration();
 
-	public VaccineRegistration getVaccineRegistration(Long long1,String key);
+	public VaccineRegistration getVaccineRegistration(String mobNo,String key);
 
 	public List<Member> getAllMember(String mobileNo,String key);
 

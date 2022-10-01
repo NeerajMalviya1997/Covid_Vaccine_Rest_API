@@ -30,9 +30,10 @@ public class VaccineCount {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Integer vaccineCountId;	
+
 private Integer vaccineId;
 private Integer quantity;
-private Integer price;
+private Double price;
 @OneToOne(cascade = CascadeType.ALL)
 private Vaccine vaccine;
 
