@@ -25,6 +25,7 @@ import com.masai.Service.VaccineService;
 import com.masai.Service.AppointmentService;
 import com.masai.Service.VaccineRegistrationService;
 import com.masai.Service.UserServiceImpl;
+import com.masai.Service.VaccinationCenterService;
 import com.masai.Service.IdCardService;
 import com.masai.Service.MemberService;
 
@@ -42,9 +43,9 @@ public class UserController {
 
 	@Autowired
 	private VaccineRegistrationService vaccineRegistrationService;
-//
-//	@Autowired
-//	private VaccinationCenterService vaccinationCenterService;
+
+	@Autowired
+	private VaccinationCenterService vaccinationCenterService;
 
 	@Autowired
 	private AppointmentService appointmentService;
@@ -106,10 +107,10 @@ public class UserController {
 		return new ResponseEntity<Member>(memberService.getMemberById(idCardId,key), HttpStatus.FOUND);
 	}
 
-//	@PutMapping("/member")
-//	public ResponseEntity<Member> updateMember(@RequestBody Member member,@RequestParam String key) {
-//		return new ResponseEntity<Member>(memberService.updateMember(member, member.getMemberId(),key), HttpStatus.OK);
-//	}
+	@PutMapping("/member")
+	public ResponseEntity<Member> updateMember(@RequestBody Member member,@RequestParam String key) {
+		return new ResponseEntity<Member>(memberService.updateMember(member, member.getMemberid(),key), HttpStatus.OK);
+	}
 
 	@DeleteMapping("/delete/{mid}")
 	public ResponseEntity<Boolean> deleteMember(@PathVariable("mid") Integer mid,@RequestParam String key) {
@@ -121,10 +122,10 @@ public class UserController {
 		return new ResponseEntity<List<Vaccine>>(vaccineService.allVaccine(key), HttpStatus.FOUND);
 	}
 
-//	@GetMapping("/vaccination_centers")
-//	public ResponseEntity<List<VaccinationCenter>> getVaccineCenters(@RequestParam String key) {
-//		return new ResponseEntity<List<VaccinationCenter>>(vaccinationCenterService.allVaccineCenters(key), HttpStatus.OK);
-//	}
+	@GetMapping("/vaccination_centers")
+	public ResponseEntity<List<VaccinationCenter>> getVaccineCenters(@RequestParam String key) {
+		return new ResponseEntity<List<VaccinationCenter>>(vaccinationCenterService.allVaccineCenters(key), HttpStatus.OK);
+	}
 
 	@PostMapping("/appointment/{memId}")
 	public ResponseEntity<Appointment> bookAppointment(@PathVariable("memId") Integer memId,
