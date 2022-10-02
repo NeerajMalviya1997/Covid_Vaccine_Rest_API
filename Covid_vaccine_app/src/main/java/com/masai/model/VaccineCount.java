@@ -21,9 +21,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Data
 @Entity
 public class VaccineCount {
 	
@@ -40,5 +40,72 @@ private Vaccine vaccine;
 @JsonIgnore
 @ManyToOne(cascade = CascadeType.ALL)
 private VaccineInventory vaccineInventory;
+
+public Integer getVaccineCountId() {
+	return vaccineCountId;
+}
+
+public void setVaccineCountId(Integer vaccineCountId) {
+	this.vaccineCountId = vaccineCountId;
+}
+
+public Integer getVaccineId() {
+	return vaccineId;
+}
+
+public void setVaccineId(Integer vaccineId) {
+	this.vaccineId = vaccineId;
+}
+
+public Integer getQuantity() {
+	return quantity;
+}
+
+public void setQuantity(Integer quantity) {
+	this.quantity = quantity;
+}
+
+public Double getPrice() {
+	return price;
+}
+
+public void setPrice(Double price) {
+	this.price = price;
+}
+
+public Vaccine getVaccine() {
+	return vaccine;
+}
+
+public void setVaccine(Vaccine vaccine) {
+	this.vaccine = vaccine;
+}
+
+public VaccineInventory getVaccineInventory() {
+	return vaccineInventory;
+}
+
+public void setVaccineInventory(VaccineInventory vaccineInventory) {
+	this.vaccineInventory = vaccineInventory;
+}
+
+public VaccineCount(Integer vaccineCountId, Integer vaccineId, Integer quantity, Double price, Vaccine vaccine,
+		VaccineInventory vaccineInventory) {
+	super();
+	this.vaccineCountId = vaccineCountId;
+	this.vaccineId = vaccineId;
+	this.quantity = quantity;
+	this.price = price;
+	this.vaccine = vaccine;
+	this.vaccineInventory = vaccineInventory;
+}
+
+public VaccineCount() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+
+
 
 }
