@@ -25,6 +25,12 @@ public class LoginController {
 	@Autowired
 	private AdminLogInServiceImpl adminLogInServiceImpl;
 
+	
+	// for user login
+	@PostMapping("/userlogin")
+	public String logInUser(@RequestBody UserDTO userDTO) throws Exception {
+		return userLogInServiceImpl.logIntoAccount(userDTO);
+	}
 	// for user logout
 	@PatchMapping("/userlogout")
 	public String logOutUser(@RequestParam(required = false) String key) {
