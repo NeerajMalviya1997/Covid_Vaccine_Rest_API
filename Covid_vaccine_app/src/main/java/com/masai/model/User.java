@@ -23,14 +23,12 @@ public class User {
 	private String name;
 	
 	@Size(max = 10,min = 10)
-	@Column(unique = true)
-	@NotNull(message = "Mobile is mandatory")
 	private String mobileNo;
 	
 	@NotNull(message = "Password is mandatory")
 	private String password;
 	
-	@Email(message="Enter your Email properly")
+	
 	@NotNull(message = "Email is mandatory")
 	private String email;
 

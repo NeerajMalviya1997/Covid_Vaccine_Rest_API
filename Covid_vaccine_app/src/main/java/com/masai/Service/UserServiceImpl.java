@@ -23,24 +23,22 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User createUser(User user) {
 		
+		
 		Optional<User> opt= userDao.findByMobileNo(user.getMobileNo());
 		
 		if(opt.isPresent()) {
-			System.out.println("User already exist");
+//			System.out.println("User already exist");
+			throw new RuntimeException("User already exist");
 		}
-		return userDao.save(user);
+		System.out.println("dsdkjlsknj");
+		userDao.save(opt.get());
+		return opt.get();
 		
 	}
 
 	@Override
 	public User updateUser(User user, String key) {
-//		User user1= getCurrentUserSession.getCurrentLogInuser(key);
-//				if(user1==null) {
-//					System.out.println("no user foung");
-//					throw new RuntimeException("No user found");
-//				}
-//		userDao.save(user);
-		//System.out.println("out");
+
 		 Optional<CurrentUserSession> optCurrUser= userSessionDAO.findByUuid(key);
 		
 			if(!optCurrUser.isPresent()) {
@@ -49,11 +47,7 @@ public class UserServiceImpl implements UserService{
 			}
 			
 			return userDao.save(user);
-//			Integer userId= optCurrUser.get().getUserId();
-//
-//			Optional<User> optUser =userDao.findById(userId);
-//			return optUser.get();
-		//return user;
+
 	}
 
 }

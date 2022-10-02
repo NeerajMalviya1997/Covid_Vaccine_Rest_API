@@ -52,18 +52,17 @@ public class VaccineInventoryServiceImpl implements VaccineInventoryService {
 			throw new VaccineInventoryNotFoundException("VaccineInventory already exists!");
 		}
 
-//	 VaccineInventory vct= vaccineInvDao.save(vaccineInv);
 
 		List<VaccinationCenter> vaccineCenterList = vaccineInv.getVaccinationCanter();
 		for (VaccinationCenter vaccinationCenter : vaccineCenterList) {
 			vaccinationCenter.setVaccineInventory(vaccineInv);
-//		vctDao.save(vaccinationCenter);
+
 		}
 
 		List<VaccineCount> vaccinecountList = vaccineInv.getVaccinecount();
 		for (VaccineCount vaccineCount : vaccinecountList) {
 			vaccineCount.setVaccineInventory(vaccineInv);
-//		 vaccinecountdao.save(vaccineCount);
+
 		}
 		return vaccineInvDao.save(vaccineInv);
 

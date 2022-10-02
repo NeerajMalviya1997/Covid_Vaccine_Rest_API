@@ -42,4 +42,10 @@ public class LoginController {
 	public String logOutAdmin(@RequestParam(required = false) String key) {
 		return adminLogInServiceImpl.logOutAccount(key);
 	}
+	
+	// for user login
+		@PostMapping("/userlogin")
+		public String logInUser(@RequestBody UserDto userDTO) throws Exception {
+			return userLogInServiceImpl.logIntoAccount(userDTO);
+		}
 }

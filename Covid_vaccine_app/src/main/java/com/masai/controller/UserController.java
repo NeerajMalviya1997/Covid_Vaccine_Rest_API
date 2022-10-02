@@ -55,8 +55,9 @@ public class UserController {
 
 	// to register user
 	@PostMapping("/")
-	public User saveUser(@RequestBody User user) {
-		return userServiceImpl.createUser(user);
+	public  ResponseEntity<User> saveUser(@RequestBody User user) {
+		User us= userServiceImpl.createUser(user);
+		return new ResponseEntity<User>(us,HttpStatus.ACCEPTED);
 	}
 
 	// to update user by passing key
