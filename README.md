@@ -4,10 +4,12 @@
    We have created this rest api for managing the vaccination included registration, booking slot and all.
 
 ## Features :
-* Can Log in/Log out of the system.
-* Can check the availability of vaccine, vaccine center and and slot accordingly.
-* Can register for vaccine and Can book the slot.
-* Can check the status.
+* Can Log in/Log out of the system
+* Can check the availability of vaccine, vaccine center and and slot accordingly
+* Can register for vaccine and Can book the slot
+* Can check the status
+* Used Postman to check the flow 
+* Used swagger to check the working of the project
 
 
 ## ER-Daigram :
